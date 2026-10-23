@@ -1,0 +1,62 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "User account, companion evolution, streak, and roadmap settings",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "goal": { "type": "string" },
+        "streak": { "type": "number" },
+        "meaningfulScore": { "type": "number" },
+        "isSetupComplete": { "type": "boolean" }
+      },
+      "required": ["uid", "displayName"]
+    },
+    "CommunityPost": {
+      "title": "Community Post",
+      "description": "Study squad, challenge, and peer support posts",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "authorId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "type": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["authorId", "authorName", "title", "content"]
+    },
+    "DailyAppLog": {
+      "title": "Daily App Log",
+      "description": "Per-user screen time logs and app usage telemetry",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "appName": { "type": "string" },
+        "category": { "type": "string" },
+        "minutesSpent": { "type": "number" },
+        "isProductive": { "type": "boolean" },
+        "date": { "type": "string" }
+      },
+      "required": ["userId", "appName", "minutesSpent", "date"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Private user profiles and progress"
+    },
+    "/users/{userId}/dailyLogs/{logId}": {
+      "schema": "DailyAppLog",
+      "description": "User daily app screen time logs"
+    },
+    "/community_posts/{postId}": {
+      "schema": "CommunityPost",
+      "description": "Public community squad and challenge posts"
+    }
+  }
+}

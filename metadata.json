@@ -1,0 +1,6 @@
+{
+  "name": "Flowra",
+  "description": "Flowra - Same screen. Different aura. Transform passive screen time into compounding mastery with customizable roadmap duration, Forest-style tree and pet evolutions, device screen analytics, bedtime alpha music, book library, and club accountability.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
